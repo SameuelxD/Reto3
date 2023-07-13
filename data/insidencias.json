@@ -1,0 +1,13 @@
+{
+    "data": [
+        {
+            "Id-Insidencia": "50",
+            "Categoria-Insidencia": "LEVE",
+            "Tipo-Insidencia": "SOFTWARE",
+            "Descripcion": "hola",
+            "Fecha-Reporte": "60",
+            "Area-Insidencia": "AREA REVIEWS",
+            "Lugar-Insidencia": "AREA REVIEWS2"
+        }
+    ]
+}

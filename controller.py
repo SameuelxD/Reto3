@@ -7,6 +7,7 @@
 import os
 import trainers
 import insidencias
+import dispositivos
 if __name__ == "__main__":
     Activate = True
     Trainers={'data':[]}
@@ -21,7 +22,14 @@ if __name__ == "__main__":
         print("2. Gestion de Trainers")
         print("3. Gestion de Dispositivos Hardware")
         print("4. Salir")
-        opcion=int(input("Digite la Opcion: "))
+        Continue=True
+        while(Continue):
+            try:
+                opcion=int(input("Digite la Opcion: "))
+            except ValueError:
+                print("Digito Invalido, Solo se aceptan Enteros")
+            else:
+                Continue=False
         if(opcion==1):
             insidencias.LoadInfoInsidencias()
             insidencias.MenuInsidencias()
@@ -29,6 +37,10 @@ if __name__ == "__main__":
             trainers.LoadInfoTrainers()
             trainers.MenuTrainers()
         elif(opcion==3):
-            pass
+            dispositivos.LoadInfoDispositivos()
+            dispositivos.MenuDispositivos()
         elif(opcion==4):
             Activate=False
+        else:
+            print("OPCION INEXISTENTE")
+            input("Digite una tecla para continuar...")

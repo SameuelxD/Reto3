@@ -1,24 +1,14 @@
 {
     "data": [
         {
-            "Id": "80",
-            "Nombre": "a",
+            "Id": "90",
+            "Nombre": "A",
             "Email-Personal": "a",
             "Email-Corporativo": "a",
-            "Telefono-Movil": 5,
-            "Telefono-Residencia": 5,
-            "Telefono-Empresa": 5,
-            "Telefono-Movil-Empresarial": 5
-        },
-        {
-            "Id": "90",
-            "Nombre": "b",
-            "Email-Personal": "b",
-            "Email-Corporativo": "b",
-            "Telefono-Movil": 6,
-            "Telefono-Residencia": 6,
-            "Telefono-Empresa": 6,
-            "Telefono-Movil-Empresarial": 6
+            "Telefono-Movil": 3,
+            "Telefono-Residencia": 3,
+            "Telefono-Empresa": 3,
+            "Telefono-Movil-Empresarial": 3
         }
     ]
 }

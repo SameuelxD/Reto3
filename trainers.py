@@ -19,22 +19,68 @@ def MenuTrainers():
     print("3. Editar Trainer")
     print("4. Eliminar Trainer")
     print("5. Regresar menu principal")
-    opcion =int(input("Digite Opcion: "))
+    Continue=True
+    while(Continue):
+        try:
+            opcion=int(input("Digite la Opcion: "))
+        except ValueError:
+            print("Digito Invalido, Solo se aceptan Enteros")
+        else:
+            Continue=False
     if (opcion == 1):
         while(Passive):
             os.system("cls")
             print('+','-'*49,'+')
             print("|{:^16}{}{:^15}|".format(' ','AGREGAR TRAINER',' '))
             print('+','-'*49,'+')
+            Pause=True
+            while(Pause):
+                try:
+                    id=int(input("Digite el Id del Trainer"))
+                except ValueError:
+                    print("El Id Digitado no es Valido")
+                else:
+                    id=str(id)
+                    Pause=False
+            Pause=True
+            while(Pause):
+                try:
+                    nombre=input("Digite el Nombre del Trainer: ").upper()
+                    personal=input("Digite el Correo Electronico Personal del Trainer: ")
+                    corporativo=input("Digite el Correo Electronico Corporativo del Trainer: ")
+                    nombre=int(nombre)
+                    personal=int(personal)
+                    corporativo=int(corporativo)
+                except ValueError:
+                    nombre=str(nombre)
+                    personal=str(personal)
+                    corporativo=str(corporativo)
+                    if((len(nombre)!=0)and(len(personal)!=0)and(len(corporativo)!=0)):
+                        Pause=False
+                    else:
+                        print("Digitos Invalidos,Solo se aceptan Strings para las opciones")
+                else:
+                    print("Digitos Invalidos,Solo se aceptan Strings para las opciones") 
+            Pause=True
+            while(Pause):
+                try:
+                    movil=int(input("Digite el Telefono Movil del Trainer: "))
+                    residencia=int(input("Digite el Telefono de Residencia del Trainer: "))
+                    empresa=int(input("Digite el Telefono de Empresa del Trainer: "))
+                    movilEmpresa=int(input("Digite el Telefono Movil Empresarial del Trainer: "))
+                except ValueError:
+                    print("Digitos Invalidos,Solo se aceptan Enteros para las opciones")
+                else:
+                    Pause=False
             trainer ={
-                "Id":(input("Digite el Id del Trainer: ")),
-                "Nombre":input("Digite el Nombre del Trainer: "),
-                "Email-Personal":input("Digite el Correo Electronico Personal del Trainer: "),
-                "Email-Corporativo":input("Digite el Correo Electronico Corporativo del Trainer: "),
-                "Telefono-Movil":int(input("Digite el Telefono Movil del Trainer: ")),
-                "Telefono-Residencia":int(input("Digite el Telefono de Residencia del Trainer: ")),
-                "Telefono-Empresa":int(input("Digite el Telefono Movil del Trainer: ")),
-                "Telefono-Movil-Empresarial":int(input("Digite el Telefono Movil Empresarial del Trainer: "))
+                "Id":id,
+                "Nombre":nombre,
+                "Email-Personal":personal,
+                "Email-Corporativo":corporativo,
+                "Telefono-Movil":movil,
+                "Telefono-Residencia":residencia,
+                "Telefono-Empresa":empresa,
+                "Telefono-Movil-Empresarial":movilEmpresa
             }
             infoTrainers["data"].append(trainer)
             core.AddInfo("trainers.json",trainer)
@@ -82,9 +128,9 @@ def MenuTrainers():
             Passive=bool(input("Digite un valor Alphanumerico para volver a Eliminar un Camper o Presione Enter para Salir al Menu Principal --> "))
 
     elif (opcion == 5):
-        print(infoTrainers)
-        input("Digite una tecla para continuar...")
-    elif (opcion == 6):
         Passive = False
     if Passive:
         MenuTrainers()
+    else:
+        print("OPCION INEXISTENTE")
+        input("Digite una tecla para continuar...")

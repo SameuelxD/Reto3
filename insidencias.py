@@ -24,7 +24,14 @@ def MenuInsidencias():
     print("3. Editar Insidencia.")
     print("4. Eliminar Insidencia.")
     print("5. Regresar menu principal")
-    opcion =int(input("Digite Opcion: "))
+    Continue=True
+    while(Continue):
+        try:
+            opcion=int(input("Digite la Opcion: "))
+        except ValueError:
+            print("Digito Invalido, Solo se aceptan Enteros")
+        else:
+            Continue=False
     if (opcion == 1):
         while(Passive):
             os.system("cls")
@@ -77,7 +84,7 @@ def MenuInsidencias():
                 "Categoria-Insidencia":categoria,
                 "Tipo-Insidencia":tipo,
                 "Descripcion":input("Digite una Descripcion de la Insidencia: "),
-                "Fecha-Reporte":input("Digite la Fecha del Reporte de la Insidencia: "),
+                "Fecha-Reporte":str(core.RandomDate()),
                 "Area-Insidencia":area,
                 "Lugar-Insidencia":lugar
             }
@@ -111,7 +118,6 @@ def MenuInsidencias():
             for i,item in enumerate(infoInsidencias["data"]):
                 if id in item["Id-Insidencia"]:
                     item["Descripcion"] = input("Digite una Nueva Descripcion para la Insidencia o Presione Enter para Omitir: ") or item["Descripcion"]
-                    item["Fecha-Reporte"] = input("Digite una Nueva Fecha de Reporte de la Insidencia o Presione Enter para Omitir: ") or item["Fecha-Reporte"]
                     core.EditarData("insidencias.json",infoInsidencias)
             Passive=bool(input("Digite un valor Alphanumerico para volver a Editar una Insidencia o Presione Enter para Salir al Menu Principal --> "))
 
@@ -131,3 +137,6 @@ def MenuInsidencias():
         Passive = False
     if Passive:
         MenuInsidencias()
+    else:
+        print("OPCION INEXISTENTE")
+        input("Digite una tecla para continuar...")

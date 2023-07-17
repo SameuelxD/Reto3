@@ -1,5 +1,7 @@
 import json
 import os
+import random
+from datetime import datetime, timedelta
 def AddInfo(*args):
     if(CheckFile(args[0]) == False):
         with open('data/'+args[0], "w") as write_file:
@@ -34,3 +36,13 @@ def CheckFile(fileName):
         return False
     except IOError as e:
         return False
+def RandomDate():
+    inicio = datetime(2023, 7, 14)
+    final =  datetime(2023, 12, 31)
+    random_date = inicio + timedelta(seconds= int((final - inicio).total_seconds() * random.random()))
+    return random_date.date()
+def RandomTime():
+    inicio = datetime(2023, 7, 14)
+    final =  datetime(2023, 12, 31)
+    random_date = inicio + timedelta(seconds= int((final - inicio).total_seconds() * random.random()))
+    return random_date.time()
